@@ -9,6 +9,7 @@ createCharacterizationModuleSpecifications <- function(targetIds,
                                                          riskWindowEnd = c(0,365),
                                                          endAnchor = c("cohort end","cohort end")
                                                        ),
+                                                       minPriorObservation = 0,
                                                        covariateSettings = FeatureExtraction::createDefaultCovariateSettings()) {
   #input checks
   if(!inherits(timeAtRisk, 'data.frame')){
@@ -36,6 +37,7 @@ createCharacterizationModuleSpecifications <- function(targetIds,
       Characterization::createAggregateCovariateSettings(
         targetIds = targetIds,
         outcomeIds = outcomeIds,
+        minPriorObservation = minPriorObservation,
         riskWindowStart = timeAtRisk$riskWindowStart[i],
         startAnchor = timeAtRisk$startAnchor[i],
         riskWindowEnd = timeAtRisk$riskWindowEnd[i],
@@ -52,7 +54,7 @@ createCharacterizationModuleSpecifications <- function(targetIds,
 
   specifications <- list(
     module = "CharacterizationModule",
-    version = "0.3.1",
+    version = "0.3.2",
     remoteRepo = "github.com",
     remoteUsername = "ohdsi",
     settings = analysis

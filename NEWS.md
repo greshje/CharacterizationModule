@@ -1,3 +1,7 @@
+CharacterizationModule 0.3.2
+=======================
+- added minPriorObservation
+
 CharacterizationModule 0.3.1
 =======================
 
